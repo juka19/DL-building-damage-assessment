@@ -7,14 +7,14 @@
 
 ## Table of Contents
 
-- [Abstract](#abstract)
-- [Overview](#overview)
-- [Data](#data)
-- [xView-baseline](#xView-baseline)
+- [Abstract](#Abstract)
+- [Overview](#Overview)
+- [Data](#Data)
+- [xView-baseline](#xView2-baseline)
 - [ChangeOS](#ChangeOS)
 - [MS4D-Net](#MS4D-Net)
 
-## Abstract(#abstract)
+## Abstract
 <p align="center">
 In post-disaster settings, damage assessments need to be conducted fast and reliably. To this end, deep learning approaches for building damage assessment have been researched and various models have been developed. However, the real-world performance on off-nadir post-event imagery of earthquakes in densely built-up urban areas still remains underexplored. In this analysis, a dataset for Kahramanmaraş, a Turkish city affected by the 2023 earthquake in the East Anatolian Fault Zone is created by combining open-source building footprints, emergency mapping information, and high-resolution open satellite imagery. Three different approaches are tested against the dataset: the [xView2-baseline](https://github.com/DIUx-xView/xView2_baseline) damage classification model component, combined with open-source building footprints as localization, the Multitask-Based Semi-Supervised Semantic Segmentation Framework [MS4D-Net](https://github.com/YJ-He/MS4D-Net-Building-Damage-Assessment), and the deep object-based semantic change detection framework [ChangeOS](https://github.com/Z-Zheng/ChangeOS). The findings suggest that earthquake building damage in densely built-up urban setting poses significant challenges for model performance. The ChangeOS framework outperforms the other approaches, although robustness checks indicate that the model does not reliably predict the same damage scene on different imagery.
 <p align="center">
@@ -40,7 +40,7 @@ Among the models that are used to for the analysis is the xView2-baseline model.
 
 Another model that was tested is the [ChangeOS model](https://github.com/Z-Zheng/ChangeOS). The official implementation from the original paper [(Zhen et al. 2020)](https://www.sciencedirect.com/science/article/abs/pii/S0034425721003564) was used. 
 
-![changeos_pred](assets/figures/ChangeOS/II/val_changeOS_prediction_16_17.png)
+![changeos](assets/figures/changeOS/II/val_changeos_prediction_16_17.png)
  
  ## MS4D-Net 
  Finally, I use the MS4D-Net, a semi-supervised learning framework. Here, I reused large parts of the [codebase](https://github.com/YJ-He/MS4D-Net-Building-Damage-Assessment).
