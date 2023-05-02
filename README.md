@@ -28,7 +28,7 @@ The project relies on one main data preparation pipeline that was used to create
 
 The pipeline starts with the retrieval of the satellite data from the Maxar Open Data Program. First, the [download links are retrieved](/src/data_prep/01_get_maxar_links.py), then starts the [retrieval of the iamgery](src/data_prep/02_download_tifs.py). Then, Building footprints are triangulated with the building damage information form the Copernicus EMS for Kahramanmaraş, [see this script for reference](src/data_prep/03_prep_building_footprints.py). The final step in the processing pipeline prepares the satellite imadery (unifying the coordinate reference system, cropping out of irrelevant image parts, etc.), and overlays the pre and post-event satellite imagery, and the building footprints to create 512x512 image tiles for three combinations of pre and post-event satellite imagery. The segmentaiton masks are created in the same step. 
 
-![assets/figures/building-footprints.png]
+![overlayed_fps](assets/figures/building-footprints.png)
 
 Finally, the xBD subset on the Mexcio City earthquake in 2017 is prepared. This data can be downloaded from the official [xView2 Challenge website](https://xview2.org/). The data is not directly compatible with the MS4D-Net model that is used to assess it. Therefore, a slightly adapted version of a script from the [Microsoft Damage Assessment Model](https://github.com/microsoft/building-damage-assessment-cnn-siamese) is used to convert the json masks to png files that can be used as segmenation masks. Another [short script](src/utils/create_tif_patches.py) is then used to split up the images and masks into 512x512 files.
 
@@ -40,4 +40,7 @@ Among the models that are used to for the analysis is the xView2-baseline model.
 
 Another model that was tested is the [ChangeOS model](https://github.com/Z-Zheng/ChangeOS). The official implementation from the original paper [(Zhen et al. 2020)](https://www.sciencedirect.com/science/article/abs/pii/S0034425721003564) was used. 
 
-![assets/figures/ChangeOS/val_changeOS_prediction_16_17.png]
+![changeos_pred](assets/figures/ChangeOS/II/val_changeOS_prediction_16_17.png)
+ 
+ ## MS4D-Net 
+ Finally, I use the MS4D-Net, a semi-supervised learning framework. Here, I reused large parts of the [codebase](https://github.com/YJ-He/MS4D-Net-Building-Damage-Assessment).
