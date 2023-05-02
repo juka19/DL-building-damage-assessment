@@ -29,9 +29,9 @@ The pipeline starts with the retrieval of the satellite data from the Maxar Open
 
 The final step in the processing pipeline prepares the satellite imadery (unifying the coordinate reference system, cropping out of irrelevant image parts, etc.), and overlays the pre and post-event satellite imagery, and the building footprints to create 512x512 image tiles for three combinations of pre and post-event satellite imagery. The segmentaiton masks are created in the same step. 
 You can access the data from my Google Drive:
-- https://drive.google.com/drive/folders/1RoWwbzjkRmsUkKwUFCjgKLgoUN5VaP4b?usp=sharing
-- https://drive.google.com/drive/folders/1mTVJpXeXlqTFbfqJpa-GfrS9Q5hLLzKp?usp=sharing
-- 
+- 512x512 pixel image tile dataset used for ChangeOS & MS4D-Net: https://drive.google.com/drive/folders/1RoWwbzjkRmsUkKwUFCjgKLgoUN5VaP4b?usp=sharing
+- Building patches for xView2-baseline: https://drive.google.com/drive/folders/1mTVJpXeXlqTFbfqJpa-GfrS9Q5hLLzKp?usp=sharing
+- Prepared Mexico-earthquake xBD subset: https://drive.google.com/drive/folders/1adr9LhlkgTe39QfG_IIqLjkxJ8uMAYdC?usp=sharing
 
 ![overlayed_fps](assets/figures/building-footprints.png)
 
