@@ -21,10 +21,13 @@ In post-disaster settings, damage assessments need to be conducted fast and reli
 
 The project relies on one main data preparation pipeline that was used to create the main dataset for Kahramanmaraş. The data pipeline brings together OpenStreetMap building footprints, EU Copernicus EMS building damage information and satellite data from the Maxar Open Data Program. Next to this, a subset of the xBD dataset is used to train the supervised component of the MS4D-Net.
 
+I used three separate enviornments for the experiments, which was neccessary because of the various dependencies, CUDA version, etc of the different models. The data preparation was conducted with a [pyhon 3.11 environment](environment.yml). For the MS4D-Net experiments, I used a [python 3.8 environment](src/models/MS4D-Net/environment.yaml). Finally, the xView2-baseline scripts were run on a Google colab notebook which was a [python 3.10 environment](assets/xView2-baseline/requirements.txt).
 
 ## Data
 
-The pipeline starts with the retrieval of the satellite data from the Maxar Open Data Program. First, the [download links are retrieved](/src/data_prep/01_get_maxar_links.py), then starts the [retrieval of the iamgery](src/data_prep/02_download_tifs.py). Then, Building footprints are triangulated with the building damage information form the Copernicus EMS for Kahramanmaraş, [see this script for reference](src/data_prep/03_prep_building_footprints.py). The final step in the processing pipeline prepares the satellite imadery (unifying the coordinate reference system, cropping out of irrelevant image parts, etc.), and overlays the pre and post-event satellite imagery, and the building footprints to create 512x512 image tiles for three combinations of pre and post-event satellite imagery. The segmentaiton masks are created in the same step. 
+The pipeline starts with the retrieval of the satellite data from the Maxar Open Data Program. First, the [download links are retrieved](/src/data_prep/01_get_maxar_links.py), then starts the [retrieval of the iamgery](src/data_prep/02_download_tifs.py). Then, Building footprints are triangulated with the building damage information form the Copernicus EMS for Kahramanmaraş, [see this script for reference](src/data_prep/03_prep_building_footprints.py). To perform these steps, you can simply run the setup.sh script from the command line.
+
+The final step in the processing pipeline prepares the satellite imadery (unifying the coordinate reference system, cropping out of irrelevant image parts, etc.), and overlays the pre and post-event satellite imagery, and the building footprints to create 512x512 image tiles for three combinations of pre and post-event satellite imagery. The segmentaiton masks are created in the same step. 
 
 ![overlayed_fps](assets/figures/building-footprints.png)
 
