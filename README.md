@@ -1,9 +1,8 @@
 <h1 align="center"> Evaluating Deep Learning based Building Damage Assessment Methods in earthquake-affected, densely built-up urban areas: The case of Kahramanmaraş </h1> <br>
 
-<p align="center">
- <b>Repository for my master thesis for the degree of
- Master of Data Science for Public Policy</b>
-<p align="center">
+
+ Repository for the master thesis for the degree of Master of Data Science for Public Policy
+
 
 ## Table of Contents
 
