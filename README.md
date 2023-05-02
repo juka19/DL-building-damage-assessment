@@ -2,7 +2,7 @@
 
 <p align="center">
  <b>Repository for my master thesis for the degree of
- Master of Data Science for Public Policy<b>
+ Master of Data Science for Public Policy</b>
 <p align="center">
 
 ## Table of Contents
