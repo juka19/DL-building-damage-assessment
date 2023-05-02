@@ -15,9 +15,8 @@
 - [MS4D-Net](#MS4D-Net)
 
 ## Abstract
-<p align="center">
+
 In post-disaster settings, damage assessments need to be conducted fast and reliably. To this end, deep learning approaches for building damage assessment have been researched and various models have been developed. However, the real-world performance on off-nadir post-event imagery of earthquakes in densely built-up urban areas still remains underexplored. In this analysis, a dataset for Kahramanmaraş, a Turkish city affected by the 2023 earthquake in the East Anatolian Fault Zone is created by combining open-source building footprints, emergency mapping information, and high-resolution open satellite imagery. Three different approaches are tested against the dataset: the [xView2-baseline](https://github.com/DIUx-xView/xView2_baseline) damage classification model component, combined with open-source building footprints as localization, the Multitask-Based Semi-Supervised Semantic Segmentation Framework [MS4D-Net](https://github.com/YJ-He/MS4D-Net-Building-Damage-Assessment), and the deep object-based semantic change detection framework [ChangeOS](https://github.com/Z-Zheng/ChangeOS). The findings suggest that earthquake building damage in densely built-up urban setting poses significant challenges for model performance. The ChangeOS framework outperforms the other approaches, although robustness checks indicate that the model does not reliably predict the same damage scene on different imagery.
-<p align="center">
 
 ## Overview
 
@@ -30,7 +29,7 @@ The pipeline starts with the retrieval of the satellite data from the Maxar Open
 
 ![overlayed_fps](assets/figures/building-footprints.png)
 
-Finally, the xBD subset on the Mexcio City earthquake in 2017 is prepared. This data can be downloaded from the official [xView2 Challenge website](https://xview2.org/). The data is not directly compatible with the MS4D-Net model that is used to assess it. Therefore, a slightly adapted version of a script from the [Microsoft Damage Assessment Model](https://github.com/microsoft/building-damage-assessment-cnn-siamese) is used to convert the json masks to png files that can be used as segmenation masks. Another [short script](src/utils/create_tif_patches.py) is then used to split up the images and masks into 512x512 files.
+Finally, the xBD subset [(Gupta et al. 2019)](https://arxiv.org/abs/1911.09296) on the Mexcio City earthquake in 2017 is prepared. This data can be downloaded from the official [xView2 Challenge website](https://xview2.org/). The data is not directly compatible with the MS4D-Net model that is used to assess it. Therefore, a slightly adapted version of a script from the [Microsoft Damage Assessment Model](https://github.com/microsoft/building-damage-assessment-cnn-siamese) is used to convert the json masks to png files that can be used as segmenation masks. Another [short script](src/utils/create_tif_patches.py) is then used to split up the images and masks into 512x512 files.
 
 ## xView2-baseline
 
@@ -43,4 +42,4 @@ Another model that was tested is the [ChangeOS model](https://github.com/Z-Zheng
 ![changeos](assets/figures/changeOS/II/val_changeos_prediction_16_17.png)
  
  ## MS4D-Net 
- Finally, I use the MS4D-Net, a semi-supervised learning framework. Here, I reused large parts of the [codebase](https://github.com/YJ-He/MS4D-Net-Building-Damage-Assessment).
+ Finally, I use the MS4D-Net by [He et al. (2023)](https://www.mdpi.com/2072-4292/15/2/478) which is a semi-supervised learning framework. Here, I reused large parts of the original [codebase](https://github.com/YJ-He/MS4D-Net-Building-Damage-Assessment).
