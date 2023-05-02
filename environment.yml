@@ -1,0 +1,15 @@
+name: thesis
+channels:
+  - defaults
+dependencies:
+  - pandas
+  - geopandas
+  - opencv
+  - plotly
+  - pip
+  - rasterio
+  - tqdm
+  - pip:
+    - osmnx
+    - pyogrio
+prefix: /home/julian/miniconda3/envs/thesis
