@@ -301,7 +301,7 @@ def main():
     for col in col:
         posts_crs = posts[posts['collection'] == col]
         posts_crs = posts_crs.to_crs(32637)
-        process_other_collections(col)
+        process_collections(col)
     
     # create train/test/val split for all collections
     for direc in os.listdir(root_dir + "/out_images/"):
